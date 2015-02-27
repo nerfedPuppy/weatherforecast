@@ -11,8 +11,6 @@ import UIKit
 var locName:String!
 class ViewController: UIViewController {
 
-    var weather = ""
-    //var urlString:String = ""
 
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var inputText: UITextField!
@@ -28,6 +26,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func quickSearchButton(sender: AnyObject) {
+        var weather = ""
         var url = NSURL(string: "http://weather-forecast.com/locations/Toronto/forecasts/latest")
         if(inputText != nil){
             println("input text is: \(inputText.text)")
@@ -60,8 +59,13 @@ class ViewController: UIViewController {
                     
                     if urlContentArray.count > 0{
                         var weatherArray = urlContentArray[1].componentsSeparatedByString("</span>")
-                        self.weather = weatherArray[0] as String
-                        println(self.weather)
+                        weather = weatherArray[0] as String
+                        
+                        println("before: \(weather)")
+                        weather = weather.stringByReplacingOccurrencesOfString("&deg;C", withString: "℃", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                        println("after: \(weather)")
+                        
+                        //println(self.weather)
                     }else{
                         urlError = true
                     }
@@ -73,8 +77,7 @@ class ViewController: UIViewController {
                     if urlError == true{
                         //do something
                     }else{
-                        println("uhoh \(self.weather)")
-                        self.resultLabel.text = self.weather
+                        self.resultLabel.text = weather
                     }
                 }
             })
