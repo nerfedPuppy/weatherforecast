@@ -68,6 +68,11 @@
                                     <action selector="quickSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ju7-g8-0hp"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" id="1De-NL-Bxm">
+                                <rect key="frame" x="33" y="284" width="348" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

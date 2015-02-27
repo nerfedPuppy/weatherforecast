@@ -31,12 +31,21 @@ class ViewController: UIViewController {
         var url = NSURL(string: "http://weather-forecast.com/locations/Toronto/forecasts/latest")
         if(inputText != nil){
             println("input text is: \(inputText.text)")
+            var finalInputText:String = inputText.text
             var urlString: String = "http://weather-forecast.com/locations/replace/forecasts/latest"
             var urlStringArray = urlString.componentsSeparatedByString("/")
             urlStringArray[4] = inputText.text
+            if urlStringArray[4].rangeOfString(" ") != nil{
+                println("Name contains a space!")
+                var finalInputText = urlStringArray[4]
+                var tempArray = finalInputText.componentsSeparatedByString(" ")
+                finalInputText = "-".join(tempArray)
+                urlStringArray[4] = finalInputText
+                println(finalInputText)
+            }
             urlString = "/".join(urlStringArray)
             println(urlString)
-            println("test for commmiting")
+            
             url = NSURL(string:urlString)
             println(url)
         }
