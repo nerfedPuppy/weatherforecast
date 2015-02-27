@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             urlStringArray[4] = inputText.text
             urlString = "/".join(urlStringArray)
             println(urlString)
-            
+            println("test for commmiting")
             url = NSURL(string:urlString)
             println(url)
         }
