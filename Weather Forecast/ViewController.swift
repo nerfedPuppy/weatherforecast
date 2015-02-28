@@ -34,6 +34,7 @@ class ViewController: UIViewController {
             var urlString: String = "http://weather-forecast.com/locations/replace/forecasts/latest"
             var urlStringArray = urlString.componentsSeparatedByString("/")
             urlStringArray[4] = inputText.text
+            println("the 4th element: \(urlStringArray[4])")
             if urlStringArray[4].rangeOfString(" ") != nil{
                 println("Name contains a space!")
                 var finalInputText = urlStringArray[4]
