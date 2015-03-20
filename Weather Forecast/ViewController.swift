@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         }else{
             locName = inputText.text
             println("searching for \(locName)")
+            println("Test")
         }
     }
     
