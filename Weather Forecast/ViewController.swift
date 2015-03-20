@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                     
                     if urlContentArray.count > 0{
                         var weatherArray = urlContentArray[1].componentsSeparatedByString("</span>")
-                        weather = weatherArray[0] as String
+                        weather = weatherArray[0] as! String
                         
                         println("before: \(weather)")
                         weather = weather.stringByReplacingOccurrencesOfString("&deg;C", withString: "℃", options: NSStringCompareOptions.LiteralSearch, range: nil)
@@ -87,8 +87,9 @@ class ViewController: UIViewController {
         }
         
     }
+   
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
     
